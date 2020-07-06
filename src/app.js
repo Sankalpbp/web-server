@@ -47,6 +47,22 @@ app.get('/weather', (req, res) => {
     });
 });
 
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Sankalp Arora',
+        errorMessage: 'Help article not found.'
+    });
+});
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        errorMessage: 'Page Not Found',
+        name: 'Sankalp Arora'
+    })
+});
+
 app.listen(3000, () => {
     console.log('Server is up on 3000');
 });
