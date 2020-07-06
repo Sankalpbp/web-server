@@ -1,12 +1,21 @@
 'use strict'
 const path = require('path');
 const express = require('express');
+const hbs = require('hbs');
 
 const app = express();
 
+// Define paths for express configuration
 const publicDirectoryPath = path.join(__dirname, '../public');
+const viewsDirectoryPath = path.join(__dirname, '../templates/views');
+const partialsDirectoryPath = path.join(__dirname, '../templates/partials');
 
+// Setup handlebars location and views location
 app.set('view engine', 'hbs');
+app.set('views', viewsDirectoryPath);
+hbs.registerPartials(partialsDirectoryPath);
+
+// Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
 app.get('', (req, res) => {
@@ -26,7 +35,8 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
-        message: 'At your Service...'
+        message: 'At your Service...',
+        name: 'Sankalp Arora'
     });
 });
 
