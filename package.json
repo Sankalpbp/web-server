@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Sankalpbp/web-server#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "hbs": "^4.0.1"
+    "hbs": "^4.0.1",
+    "request": "^2.88.2"
   }
 }
